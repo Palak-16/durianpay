@@ -16,16 +16,16 @@
 </form>
 
 <?php
-   if(isset($_GET['searchdata']))
-   {
-    $search = $_GET['searchdata'];
-    $search = strtolower($search);
-    $search = str_replace(" ","+",$search);
-//     echo $search;
-require('shopclues.php');
-   $shopclues_ob= new shopclues();
-    $shopclues_ob->fetch_details($search);
-   }
+require('db_con.php');
+if (isset($_GET['searchdata'])) {
+   $search = $_GET['searchdata'];
+   $search = strtolower($search);
+   $search = str_replace(" ", "+", $search);
+
+   require('main.php');
+   $main_ob = new main();
+   $main_ob->fetch($search);
+}
 ?>
 
 </body>
