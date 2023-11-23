@@ -20,41 +20,35 @@
   <option value="rating">rating</option>
 </select><br>
 <label class="">Top n :</label>
-<input type="number" name="topn" min="1" max="5"><br>
+<input type="number" name="topn" value="3" max="5"><br>
 
 <label >Comparison websites:</label><br>
 <input type="checkbox" name="websites[]" value="shopclues" checked>
 <label for="shopclues"> shopclues</label><br>
 <input type="checkbox" name="websites[]" value="reliance" checked>
 <label for="reliance">reliance</label><br>
-<input type="checkbox" name="websites[]" value="gadgets now" checked>
-<label for="gadgets now"> gadgets now</label><br>
+<input type="checkbox" name="websites[]" value="gadgetsnow" checked>
+<label for="gadgetsnow"> gadgets now</label><br>
 <br>
  <input id="search" class="" type="submit" value="Search">
 </form>
 </body>
 </html>
 
-<!-- <?php
-   $website = $_POST['websites'];
-   
-     $N = count($website);
-     for($i=0; $i < $N; $i++)
-     {
-       echo($website[$i] . " ");
-     }
-?> -->
-
 <?php
 require('db_con.php');
+
+
 if (isset($_GET['searchdata'])) {
    $search = $_GET['searchdata'];
    $search = strtolower($search);
    $search = str_replace(" ", "+", $search);
+   $website = $_GET['websites'];
+   $topn = $_GET['topn'] ;
 
    require('main.php');
    $main_ob = new main();
-   $main_ob->fetch($search);
+   $main_ob->fetch($search,$website,$topn,$conn);
 }
 ?>
 
