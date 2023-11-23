@@ -3,7 +3,6 @@ class Main
 {
     function fetch($search, $website,$topn,$conn,$filter)
     {
-        require('db_con.php');
 
         foreach ($website as $key) {
 
