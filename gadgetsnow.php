@@ -1,38 +1,36 @@
 <?php
- require('simple_html_dom.php');
-$html= file_get_html("https://www.gadgetsnow.com/mobile-phones");
+require('simple_html_dom.php');
+class gadgetsnow
+{
+  public $product = array();
+  public $products = array();
+  public $url = "https://www.gadgetsnow.com/search?q=";
+  function fetch_details($search, $conn)
+  {
+    $html = file_get_html($this->url . $search);
+    if ($html === false) {
+      die('Error fetching HTML');
+    }
+    foreach ($html->find('div.column') as $index => $element) {
+      
+      $title = $element->find('h2._1M-Zt', 0)->innertext;
+      $price = $element->find('span._3tTel', 0)->innertext;
+      $url = $element->find('a', 0)->href;
+      $rating = rand(1, 5);
+      $review = rand(10, 500);
+      $this->product = array('title' => '$title', 'price' => $price, 'url' => $url);
+      array_push($this->products, $this->product);
+      $sql = "INSERT INTO `products` (`title`, `price` , `url` , `search`,`rating`,`review`) VALUES ('$title', '$price' , '$url' , '$search','$rating','$review')";
+      $result = mysqli_query($conn, $sql);
+      if (!$result) {
+        echo "error entering data";
+      }
+    }
 
-if ($html === false) {
-    die('Error fetching HTML');
-}
-echo '
-  <table class="w3-table w3-striped w3-bordered w3-card-4">
-  <thead>
-  <tr class="w3-blue">
-    <th>IMAGE</th>
-    <th>PRODUCT</th>
-    <th>PRICE</th>
-    <th>BUY HERE</th>
-  </tr>
-  </thead>
-';
-$base_url="https://www.gadgetsnow.com/";
-foreach($html->find('div._1os5d') as $index => $element) {
-    $img= $element->find('div._3y0Dv img',0)->innertext;
-    $name=$element->find('h2._1M-Zt',0)->innertext;
-    $price= $element->find('span._3tTel',0)->innertext;
-    $buy= $base_url.$name;
-    echo '
-    <tr>
-      <td>'.$img.'</td>
-      <td>'.$name.'</td>
-      <td>'.$price.'</td>
-      <td><a href="'.$buy.'">Buy</a></td>
-    </tr>
+    echo json_encode($this->products, JSON_PRETTY_PRINT);
+  }
 
-    ';
 }
-// $html= file_get_html('https://www.google.com/');
-// echo $html->find('title',0)->plaintext;
+
 ?>
 

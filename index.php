@@ -6,7 +6,7 @@
    <title>Document</title>
 </head>
 <body>
-<form action="index.php"  method="post">
+<form action="index.php"  method="get">
  
 <label class="">Search Product</label>
 <input class="" name="searchdata" type="text" maxlength="20" required><br>
@@ -35,7 +35,7 @@
 </body>
 </html>
 
-<?php
+<!-- <?php
    $website = $_POST['websites'];
    
      $N = count($website);
@@ -43,7 +43,7 @@
      {
        echo($website[$i] . " ");
      }
-?>
+?> -->
 
 <?php
 require('db_con.php');
