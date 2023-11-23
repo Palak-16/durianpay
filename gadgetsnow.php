@@ -16,9 +16,11 @@ class gadgetsnow
     $result = mysqli_query($conn, $sql);
     $total_row = mysqli_num_rows($result);
     if ($total_row == 0) {
+      
       foreach ($html->find('div.product-wrap') as $index => $element) {
         $title = $element->find('span.product-name', 0)->innertext;
-        $price = $element->find('div.price-details', 0)->innerhtml;
+        $price = $element->find('span.offerprice', 0)->plaintext;
+        $price = str_replace( array( ',' , '`', ' '), '', $price);
         $url = $element->find('a', 0)->href;
         $rating = rand(1, 5);
         $review = rand(10, 500);
