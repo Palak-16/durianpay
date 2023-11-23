@@ -1,6 +1,6 @@
 <?php
- require('simple_html_dom.php');
-$html= file_get_html("https://vijaysales.com/search/phone");
+ require('./vendor/simple_html_dom.php');
+$html= file_get_html("https://www.jiomart.com/search/phone");
 
 if ($html === false) {
     die('Error fetching HTML');
@@ -16,13 +16,12 @@ echo '
   </tr>
   </thead>
 ';
-$base_url="https://vijaysales.com/";
-foreach($html->find('div.col5_2') as $index => $element) {
+$base_url="https://www.jiomart.com/";
+foreach($html->find('li.ais-InfiniteHits-item') as $index => $element) {
     $img= $element->find('div.plp-card-image',0)->innertext;
-    $name=$element->find('h2.Dynamic-Bucket-ProductName',0)->innertext;
+    $name=$element->find('div.plp-card-details-name',0)->innertext;
     $price= $element->find('span.jm-heading-xxs',0)->innertext;
-    $buy= $element->find('span.jm-heading-xxs',0)->getAttribute("");
-
+    $buy= $base_url.$name;
     echo '
     <tr>
       <td>'.$img.'</td>

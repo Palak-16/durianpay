@@ -7,17 +7,17 @@ class Main
         foreach ($website as $key) {
 
             if ($key == "shopclues") {
-                require('shopclues.php');
+                require('websites/shopclues.php');
                 $shopclues_ob = new shopclues();
                 $shopclues_ob->fetch_details($search, $conn);
             }
             if ($key == "reliance") {
-                require('reliance.php');
+                require('websites/reliance.php');
                 $reliance_ob = new reliance();
                 $reliance_ob->fetch_details($search, $conn);
             }
             if ($key == "gadgetsnow") {
-                require('gadgetsnow.php');
+                require('websites/gadgetsnow.php');
                 $gadgetsnow_ob = new gadgetsnow();
                 $gadgetsnow_ob->fetch_details($search, $conn);
             }
