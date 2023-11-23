@@ -7,7 +7,7 @@
    <title>Document</title>
 </head>
 <body>
-<form action="api.php"  method="get">
+<form action="api_controller.php"  method="get">
  
 <label class="">Search Product</label>
 <input class="" name="searchdata" type="text" maxlength="20" required><br>

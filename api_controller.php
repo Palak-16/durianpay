@@ -15,8 +15,8 @@ if (isset($_GET['searchdata'])) {
    $topn = $_GET['topn'] ;
    $filter = $_GET['filter'] ;
 
-   require('main.php');
-   $main_ob = new main();
-   $main_ob->fetch($search,$website,$topn,$conn,$filter);
+   require('service.php');
+   $service = new service();
+   $service->fetch($search,$website,$topn,$conn,$filter);
 }
 ?>

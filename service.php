@@ -1,5 +1,5 @@
 <?php
-class Main
+class service
 {
     function fetch($search, $website,$topn,$conn,$filter)
     {
