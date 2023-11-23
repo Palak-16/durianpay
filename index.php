@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
    <title>Document</title>
 </head>
 <body>
-<form action="index.php"  method="get">
+<form action="api.php"  method="get">
  
 <label class="">Search Product</label>
 <input class="" name="searchdata" type="text" maxlength="20" required><br>
@@ -14,8 +15,8 @@
 <label >Filter:</label>
 <select name="filter">
   <option value="none">none</option>
-  <option value="highest price">highest price</option>
-  <option value="lowest price">lowest price</option>
+  <option value="highest_price">highest price</option>
+  <option value="lowest_price">lowest price</option>
   <option value="review">review</option>
   <option value="rating">rating</option>
 </select><br>
@@ -34,23 +35,6 @@
 </form>
 </body>
 </html>
-
-<?php
-require('db_con.php');
-
-
-if (isset($_GET['searchdata'])) {
-   $search = $_GET['searchdata'];
-   $search = strtolower($search);
-   $search = str_replace(" ", "+", $search);
-   $website = $_GET['websites'];
-   $topn = $_GET['topn'] ;
-
-   require('main.php');
-   $main_ob = new main();
-   $main_ob->fetch($search,$website,$topn,$conn);
-}
-?>
 
 </body>
 </html>

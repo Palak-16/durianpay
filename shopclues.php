@@ -20,6 +20,7 @@ class shopclues
 
         $title = $element->find('.extraBadges+h2', 0)->innertext;
         $price = $element->find('span.p_price', 0)->innertext;
+        $price = str_replace( array( ',' , '₹'), '', $price);
         $url = $element->find('a', 0)->href;
         $rating = rand(1, 5);
         $review = rand(10, 500);

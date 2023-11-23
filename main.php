@@ -1,7 +1,7 @@
 <?php
 class Main
 {
-    function fetch($search, $website,$topn,$conn)
+    function fetch($search, $website,$topn,$conn,$filter)
     {
         require('db_con.php');
 
@@ -23,13 +23,23 @@ class Main
                 $gadgetsnow_ob->fetch_details($search, $conn);
             }
         }
-        $this->diplay_details($topn,$website,$search,$conn);
+        $this->diplay_details($topn,$website,$search,$conn,$filter);
     }
-    function diplay_details($topn,$website,$search,$conn)
+    function diplay_details($topn,$website,$search,$conn,$filter)
     {
       // $sql="SELECT * FROM products WHERE search='$search' website IN('.implode(',',$website).') LIMIT '$topn'";
-      $sql = "SELECT * FROM products WHERE search='$search' AND website IN ('" . implode("','", $website) . "') LIMIT $topn";
+      $sql = "SELECT * FROM products WHERE search='$search' AND website IN ('" . implode("','", $website) . "')";
 
+      if($filter =="highest_price"){
+        $sql .= " ORDER BY price desc";
+      }else if($filter == "lowest_price"){
+        $sql .= " ORDER BY price";
+      }else if($filter == "rating"){
+        $sql .= " ORDER BY rating desc";
+      }else if($filter == "review"){
+        $sql .= " ORDER BY review desc";
+      }
+      $sql .= " LIMIT $topn";
       $result = mysqli_query($conn, $sql);
        $total_row = mysqli_num_rows($result);
        $json_array=array();
