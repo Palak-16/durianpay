@@ -1,27 +1,27 @@
 # Price Comparison System
 Overview :
--This project is a proof-of-concept for an internal price comparison system. The system consists of an API and a web interface that allows users to compare product prices across various websites. The API fetches data from different sources, processes it, and returns the results in JSON format. The web interface provides a user-friendly way to input parameters and view the comparison results.
+This project is a proof-of-concept for an internal price comparison system. The system consists of an API and a web interface that allows users to compare product prices across various websites. The API fetches data from different sources, processes it, and returns the results in JSON format. The web interface provides a user-friendly way to input parameters and view the comparison results.
 
 Technologies Used:
 - Backend: PHP
 - Database: MySQL
-Web Interface: HTML, CSS
-Deployment: Vercel
+- Web Interface: HTML, CSS
+- Deployment: Vercel
 
 Project Structure:
-config/config.php - it includes all the database credentials.
+- config/config.php - it includes all the database credentials.
 
-model/db_con.php - This files contains the logic of database connection.
+- model/db_con.php - This files contains the logic of database connection.
 
-website - This folder includes all the files which consist of logic of data crawling from various websites.
+- website - This folder includes all the files which consist of logic of data crawling from various websites.
 
-api_controller.php - The PHP file containing the API logic for fetching and processing product data from comparison websites.
+- api_controller.php - The PHP file containing the API logic for fetching and processing product data from comparison websites.
 
-services.php - This file consits the logic of all the filters applied on differnt product searches.
+- services.php - This file consits the logic of all the filters applied on differnt product searches.
 
-index.html: The HTML file for the web interface, allowing users to input search parameters and displaying the results.
+- index.html: The HTML file for the web interface, allowing users to input search parameters and displaying the results.
 
-database.sql: SQL file for creating the necessary database and table structure.
+- database.sql: SQL file for creating the necessary database and table structure.
 
 
 Database Structure :
