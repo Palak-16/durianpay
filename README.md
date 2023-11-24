@@ -28,7 +28,7 @@ Database Structure :
 This project uses a MySQL Database.
 
 API Endpoints
-- Endpoint: api.php
+- Endpoint:  http://localhost/durianpay/api_controller.php
 - Method: GET
 - Parameters:
   - searchdata - e.g.(oppo phone)
