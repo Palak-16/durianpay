@@ -3,8 +3,8 @@ Overview :
 -This project is a proof-of-concept for an internal price comparison system. The system consists of an API and a web interface that allows users to compare product prices across various websites. The API fetches data from different sources, processes it, and returns the results in JSON format. The web interface provides a user-friendly way to input parameters and view the comparison results.
 
 Technologies Used:
-Backend: PHP
-Database: MySQL
+- Backend: PHP
+- Database: MySQL
 Web Interface: HTML, CSS
 Deployment: Vercel
 
