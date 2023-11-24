@@ -34,7 +34,9 @@ API Endpoints
   - searchdata - e.g.(oppo phone)
   - filter - (highest_price,lowest_price,rank,rating)
   - topN - (default: 3)
-  - comparisonWebsites - (shopclues , reliance , gadgets now , bajaj , oxygen, default: all)
+  - comparisonWebsites - (shopclues , reliance , gadgets now , bajaj , default: all)
     
-- API Example: http://localhost/durianpay/api_controller.php?searchdata=oppo&filter=highest_price&topn=50&websites%5B%5D=shopclues&websites%5B%5D=reliance&websites%5B%5D=gadgetsnow
+- API Example: http://esportszedi.com/api_controller.php? 
+  searchdata=oppo&filter=none&topn=50&websites%5B%5D=shopclues&websites%5B%5D=reliance&websites%5B%5D=gadgetsnow&websites%5B%5D=bajaj
+- Website: http://esportszedi.com/
 
