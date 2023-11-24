@@ -9,7 +9,7 @@ class shopclues
   function fetch_details($search, $conn)
   {
     
-    echo "shopclues".time();
+    
     $html = file_get_html($this->url . $search);
     if ($html === false) {
       die('Error fetching HTML');

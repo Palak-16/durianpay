@@ -8,7 +8,7 @@ class reliance
   public $url = "https://www.reliancedigital.in/search?q=";
   function fetch_details($search, $conn)
   {
-    echo "rl".time();
+   
     $html = file_get_html($this->url . $search);
     if ($html === false) {
       die('Error fetching HTML');

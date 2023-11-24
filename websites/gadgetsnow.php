@@ -8,7 +8,7 @@ class gadgetsnow
   public $url = "https://shop.gadgetsnow.com/mtkeywordsearch?SEARCH_STRING=";
   function fetch_details($search, $conn)
   {
-    echo "gadgets".time();
+    
     $html = file_get_html($this->url . $search);
     if ($html === false) {
       die('Error fetching HTML');
