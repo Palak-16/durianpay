@@ -8,13 +8,17 @@ class shopclues
   public $url = "https://www.shopclues.com/search?q=";
   function fetch_details($search, $conn)
   {
+    
+    echo "shopclues".time();
     $html = file_get_html($this->url . $search);
     if ($html === false) {
       die('Error fetching HTML');
     }
+
     $sql = "SELECT * FROM products WHERE search ='$search' AND website='$this->website'" ;
     $result = mysqli_query($conn, $sql);
     $total_row = mysqli_num_rows($result);
+
     if ($total_row == 0) {
       foreach ($html->find('div.column') as $index => $element) {
 

@@ -3,7 +3,6 @@ class service
 {
     function fetch($search, $website,$topn,$conn,$filter)
     {
-
         foreach ($website as $key) {
 
             if ($key == "shopclues") {
@@ -22,6 +21,7 @@ class service
                 $gadgetsnow_ob->fetch_details($search, $conn);
             }
         }
+
         $this->diplay_details($topn,$website,$search,$conn,$filter);
     }
     function diplay_details($topn,$website,$search,$conn,$filter)
@@ -45,7 +45,7 @@ class service
        while( $row = mysqli_fetch_assoc($result)) {
            $json_array[]=$row;
        }
-       echo json_encode($json_array,JSON_PRETTY_PRINT);
+      echo json_encode($json_array,JSON_PRETTY_PRINT);
     }
 }
 ?>
