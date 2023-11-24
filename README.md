@@ -31,9 +31,9 @@ API Endpoints
 - Endpoint: api.php
 - Method: GET
 - Parameters:
-- - searchdata - e.g.(oppo phone)
-- - filter - (highest_price,lowest_price,rank,rating)
-- - topN - (default: 3)
-- - comparisonWebsites - (shopclues , reliance , gadgets now , bajaj , oxygen, default: all)
+ - searchdata - e.g.(oppo phone)
+ - filter - (highest_price,lowest_price,rank,rating)
+ - topN - (default: 3)
+ - comparisonWebsites - (shopclues , reliance , gadgets now , bajaj , oxygen, default: all)
 API Example - http://localhost/durianpay/api_controller.php?searchdata=oppo&filter=highest_price&topn=50&websites%5B%5D=shopclues&websites%5B%5D=reliance&websites%5B%5D=gadgetsnow
 
